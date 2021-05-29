@@ -22,6 +22,13 @@
         "title": "Early return",
         "category": "early-return"
       }
+    ],
+    "keybindings":[
+      {
+        "command": "early-return.earlyReturn",
+        "key": "ctrl+shift+e",
+        "mac": "cmd+shift+e"
+      }
     ]
   },
   "scripts": {
