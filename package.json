@@ -1,6 +1,8 @@
 {
   "name": "early-return",
   "displayName": "Early Return",
+  "publisher": "AbdoArwish",
+  "repository":"https://github.com/AbdoHema2016/earlyReturn.git",
   "description": "changes if else statements to early return pattern",
   "version": "0.0.1",
   "engines": {
