@@ -35,25 +35,24 @@ export function activate(context: vscode.ExtensionContext) {
 			const selection = editor.selection;
 
 			// Get the if statements selection within the selection
-			let statements = document.getText(selection);
-			statements = statements.replace(/\s+/g, '');
-			let lastElse = statements.indexOf('else{');
+			const statements = document.getText(selection);
+			let lastElse = statements.indexOf('else {');
 			//get the opening bracket index
 			let changedIfElse=statements
 			if(lastElse>0){
 				
-				lastElse+=4;
+				lastElse+=5;
 				//find the last else enclosing bracket index
 			const enclosingBracket = findClosingBracketMatchIndex('{','}',statements,lastElse);
 			//replacing last else enclosing bracket with return;
 			let removedLastBracket = statements.substring(0, enclosingBracket) + 'return;' + statements.substring(enclosingBracket+1);
 		//replacing last else with return
-		 changedIfElse = removedLastBracket.replace(/}else{/g, `return;}\n`);	
+		 changedIfElse = removedLastBracket.replace(/} else {/g, `return;}\n`);	
 		}
 		if(lastElse<=0){
-			let lastIfElse =  statements.lastIndexOf('elseif(')
+			let lastIfElse =  statements.lastIndexOf('else if (')
 			console.log("lastIfElse",lastIfElse);
-			lastIfElse+=6
+			lastIfElse+=8
 			let lastIfElsePracketIndex = findClosingBracketMatchIndex('(',')',statements,lastIfElse)
 			 lastIfElsePracketIndex+=2
 			let lastCurly = findClosingBracketMatchIndex('{','}',statements,lastIfElsePracketIndex)
@@ -64,7 +63,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 			
 			//replacing all remaining else if with return
-			changedIfElse = changedIfElse.replace(/}else/g, `return;}\n`);
+			changedIfElse = changedIfElse.replace(/} else/g, `return;}\n`);
 			editor.edit(editBuilder => {
 				editBuilder.replace(selection, changedIfElse);
 			});
