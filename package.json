@@ -5,12 +5,15 @@
   "repository":"https://github.com/AbdoHema2016/earlyReturn.git",
   "description": "changes if else statements to early return pattern",
   "version": "0.0.1",
+  "author": {"name": "Abdo Arwish"},
   "engines": {
     "vscode": "^1.56.0"
   },
   "categories": [
-    "Other"
+    "Formatters",
+    "Programming Languages"
   ],
+  "icon": "ER.png",
   "activationEvents": [
     "onCommand:early-return.earlyReturn"
   ],
