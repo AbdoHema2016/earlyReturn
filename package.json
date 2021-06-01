@@ -4,7 +4,7 @@
   "publisher": "AbdoArwish",
   "repository":"https://github.com/AbdoHema2016/earlyReturn.git",
   "description": "changes if else statements to early return pattern",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": {"name": "Abdo Arwish"},
   "engines": {
     "vscode": "^1.56.0"
